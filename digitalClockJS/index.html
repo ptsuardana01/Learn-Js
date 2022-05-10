@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>My Digital Clock JS</title>
+</head>
+<body>
+    <div id="time">
+        <div class="circle" style="--clr:#ff3179;">
+            <div class="dots h-dot"></div>
+            <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70" id="hh"></circle>
+            </svg>
+            <div id="hours">00</div>
+        </div>
+        <div class="circle" style="--clr:#ffff31;">
+            <div class="dots m-dot"></div>
+            <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70" id="mm"></circle>
+            </svg>
+            <div id="minutes">00</div>
+        </div>
+        <div class="circle" style="--clr:#31ff31;">
+            <div class="dots s-dot"></div>
+            <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70" id="ss"></circle>
+            </svg>
+            <div id="seconds">00</div>
+        </div>
+
+        <div class="ap">
+            <div id="ampm">AM</div>
+        </div>
+    </div>
+
+    <script>
+        setInterval(() => {
+        // inisialisasi
+        let hours = document.getElementById('hours')
+        let minutes = document.getElementById('minutes')
+        let seconds = document.getElementById('seconds')
+        let ampm = document.getElementById('ampm')
+
+        let hh = document.getElementById("hh")
+        let mm = document.getElementById("mm")
+        let ss = document.getElementById("ss")
+
+        // get time
+        let h = new Date().getHours()
+        let m = new Date().getMinutes()
+        let s = new Date().getSeconds()
+        let zoneTimes = h >= 12 ? "PM" : "AM"
+
+        // conver to 12 hours
+        if (h > 12) {
+            h -= 12
+        }
+        //give 0 to single time
+        h = (h < 10) ? "0" + h :  h
+        m = (m < 10) ? "0" + m :  m
+        s = (s < 10) ? "0" + s :  s
+
+        // use into innerHTML
+        hours.innerHTML = h
+        minutes.innerHTML = m
+        seconds.innerHTML = s
+        ampm.innerHTML = zoneTimes
+
+        //12 hours
+        hh.style.strokeDashoffset = 440 - (440 * h) / 12
+        //60 minutes
+        mm.style.strokeDashoffset = 440 - (440 * m) / 60
+        //60 seconds
+        ss.style.strokeDashoffset = 440 - (440 * s) / 60
+
+        
+        })
+        
+    </script>
+</body>
+</html>
