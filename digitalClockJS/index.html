@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="time">
-        <div class="circle" style="--clr:#ff3179;">
+        <div class="circle" style="--clr:#ffffff;">
             <div class="dots h-dot"></div>
             <svg>
                 <circle cx="70" cy="70" r="70"></circle>
@@ -17,7 +17,7 @@
             </svg>
             <div id="hours">00</div>
         </div>
-        <div class="circle" style="--clr:#ffff31;">
+        <div class="circle" style="--clr:#2386ff;">
             <div class="dots m-dot"></div>
             <svg>
                 <circle cx="70" cy="70" r="70"></circle>
@@ -25,7 +25,7 @@
             </svg>
             <div id="minutes">00</div>
         </div>
-        <div class="circle" style="--clr:#31ff31;">
+        <div class="circle" style="--clr:#ffff31;">
             <div class="dots s-dot"></div>
             <svg>
                 <circle cx="70" cy="70" r="70"></circle>
@@ -51,6 +51,10 @@
         let mm = document.getElementById("mm")
         let ss = document.getElementById("ss")
 
+        let h_dot = document.querySelector(".h-dot")
+        let m_dot = document.querySelector(".m-dot")
+        let s_dot = document.querySelector(".s-dot")
+
         // get time
         let h = new Date().getHours()
         let m = new Date().getMinutes()
@@ -67,9 +71,9 @@
         s = (s < 10) ? "0" + s :  s
 
         // use into innerHTML
-        hours.innerHTML = h
-        minutes.innerHTML = m
-        seconds.innerHTML = s
+        hours.innerHTML = h + "<br><span>HOURS</span>"
+        minutes.innerHTML = m + "<br><span>MINUTES</span>"
+        seconds.innerHTML = s + "<br><span>SECONDS</span>"
         ampm.innerHTML = zoneTimes
 
         //12 hours
@@ -79,7 +83,9 @@
         //60 seconds
         ss.style.strokeDashoffset = 440 - (440 * s) / 60
 
-        
+        h_dot.style.transform = `rotate(${30 * h}deg)`
+        m_dot.style.transform = `rotate(${6 * m}deg)`
+        s_dot.style.transform = `rotate(${6 * s}deg)`
         })
         
     </script>
