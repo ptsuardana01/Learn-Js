@@ -1,3 +1,9 @@
+/* declaration color */
+:root{
+    --clr-shadow: #fcf00a;
+
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -21,7 +27,7 @@ body{
     background-color: rgba(109, 109, 140, 0.5);
     border-radius: 20px;
     cursor: pointer;
-    transition: 0.7s;
+    transition: 0.6s;
     transition-delay: 0.8s;
 }
 
@@ -30,21 +36,38 @@ body{
     height: 200px;
 }
 
-.nav span{
+.nav a{
     position: absolute;
     width: 5px;
     height: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: #fff;
     border-radius: 50%;
     transform: translate(calc(10px * var(--x)), calc(10px * var(--y)));
-    transition: transform 0.7s, width 0.5s, height 0.5s, backgound 0.5s;
+    transition: transform 0.6s, width 0.5s, height 0.5s, backgound 0.5s;
     transition-delay: calc(0.1s * var(--i));
 }
 
-.nav.active span{
+.nav.active a{
     transform: translate(calc(60px * var(--x)), calc(60px * var(--y)));
-    background-color: rgb(160, 160, 220);
-    width: 45px;
-    height: 45px;
+    background-color: rgb(120, 120, 220);
+    width: 50px;
+    height: 50px;
 }
 
+.nav a ion-icon{
+    transition: 0.5s;
+    font-size: 0em;
+}
+
+.nav.active a ion-icon{
+    font-size: 1.6rem;
+    color: #fff;
+}
+
+.nav.active a:hover ion-icon{
+    color: var(--clr-shadow);
+    filter: drop-shadow(0 0 2px var(--clr-shadow)) drop-shadow(0 0 5px var(--clr-shadow)) drop-shadow(0 0 15px var(--clr-shadow));
+}

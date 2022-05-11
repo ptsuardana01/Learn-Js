@@ -9,18 +9,22 @@
 </head>
 <body>
     <div class="nav">
-        <span style="--i:0; --x:-1; --y:0"></span>
-        <span style="--i:1; --x:0; --y:-1"></span>
-        <span style="--i:2; --x:1; --y:0"></span>
-        <span style="--i:3; --x:0; --y:1"></span>
-        <span style="--i:4; --x:-1; --y:1"></span>
-        <span style="--i:4; --x:0; --y:0"></span>
-        <span style="--i:5; --x:-1; --y:1"></span>
-        <span style="--i:6; --x:-1; --y:-1"></span>
-        <span style="--i:7; --x:1; --y:-1"></span>
-        <span style="--i:8; --x:1; --y:1"></span>
+        <a style="--i:0; --x:-1; --y:0"><ion-icon name="chatbubble-outline"></ion-icon></a>
+        <a style="--i:1; --x:1; --y:0"><ion-icon name="folder-outline"></ion-icon></a>
+        <a style="--i:2; --x:0; --y:-1"><ion-icon name="mail-unread-outline"></ion-icon></a>
+        <a style="--i:3; --x:0; --y:1"><ion-icon name="person-outline"></ion-icon></a>
+        <a style="--i:4; --x:0; --y:0"><ion-icon name="contrast-outline"></ion-icon></a>
+        <a style="--i:5; --x:-1; --y:1"><ion-icon name="settings-outline"></ion-icon></a>
+        <a style="--i:6; --x:1; --y:-1"><ion-icon name="add-outline"></ion-icon></a>
+        <a style="--i:7; --x:-1; --y:-1"><ion-icon name="create-outline"></ion-icon></a>
+        <a style="--i:8; --x:1; --y:1"><ion-icon name="exit-outline"></ion-icon></a>
     </div>
 
+    <!-- icons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <!-- my sricpt -->
     <script>
         var nav = document.querySelector('.nav')
         nav.onclick = function(){
